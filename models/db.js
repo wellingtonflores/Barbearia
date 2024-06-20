@@ -1,11 +1,13 @@
+require("dotenv").config()
 const pg = require("pg");
 
+
 const db = new pg.Client({
-  user: "postgres",
-  password: "minhamae1",
-  database: "barbearia",
-  host: "localhost",
-  port: 5432,
+  user: process.env.userDB,
+  password: process.env.passwordDB,
+  database: process.env.DB,
+  host: process.env.hostDB,
+  port: process.env.portDB,
 });
 
 db.connect((err) => {
