@@ -4,8 +4,6 @@ const usuariosRoutes = require("./routes/usuariosRoutes.js");
 const servicosRoutes = require("./routes/servicosRoutes.js");
 const funcionariosRoutes = require("./routes/funcionariosRoutes.js");
 const agendamentosRoutes = require("./routes/agendamentosRoutes.js");
-const session = require("express-session");
-
 
 const app = express();
 const port = process.env.PORT || 4000;

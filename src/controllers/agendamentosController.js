@@ -1,5 +1,5 @@
 const queryDB = require("../../utils/queryDB")
-const db = require("../../models/db.js")
+const db = require("../models/db.js")
 
 const getAgendamentos = async (req, res) => {
   try {

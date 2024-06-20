@@ -1,4 +1,4 @@
-const db = require("../models/db.js");
+const db = require("../src/models/db.js");
 
 const queryDB = async (query, params) => {
   try {
