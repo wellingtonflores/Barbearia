@@ -1,5 +1,5 @@
-import express from "express";
-import { getServicos, criarServico, atualizarServico, deletarServico } from "../src/controllers/servicosController.js";
+const express = require("express");
+const { getServicos, criarServico, atualizarServico, deletarServico } = require("../src/controllers/servicosController.js");
 
 const router = express.Router();
 
@@ -8,4 +8,4 @@ router.post("/", criarServico);
 router.put("/:id", atualizarServico);
 router.delete("/:id", deletarServico);
 
-export default router;
+module.exports = router;

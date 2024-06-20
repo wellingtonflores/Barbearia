@@ -1,4 +1,4 @@
-import db from "../models/db.js";
+const db = require("../models/db.js");
 
 const queryDB = async (query, params) => {
   try {
@@ -10,4 +10,4 @@ const queryDB = async (query, params) => {
   }
 };
 
-export default queryDB;
+module.exports = queryDB;

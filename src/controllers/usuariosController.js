@@ -1,9 +1,9 @@
-import bcrypt from "bcrypt";
-import queryDB from "../../utils/queryDB.js";
+const bcrypt = require("bcrypt");
+const queryDB = require("../../utils/queryDB.js");
 
 const selecionaUsuarioEmail = () => "SELECT * FROM usuarios WHERE email = $1";
 
-export const getUsuarios = async (req, res) => {
+const getUsuarios = async (req, res) => {
   try {
     const usuarios = await queryDB("SELECT * FROM usuarios");
     res.json(usuarios);
@@ -13,7 +13,7 @@ export const getUsuarios = async (req, res) => {
   }
 };
 
-export const registrarUsuario = async (req, res) => {
+const registrarUsuario = async (req, res) => {
   const { nome, email, whatsapp, senha } = req.body;
   try {
     const checkResult = await queryDB(selecionaUsuarioEmail(), [email]);
@@ -33,7 +33,7 @@ export const registrarUsuario = async (req, res) => {
   }
 };
 
-export const loginUsuario = async (req, res) => {
+const loginUsuario = async (req, res) => {
   const { email, senha } = req.body;
   try {
     const resultado = await queryDB(selecionaUsuarioEmail(), [email]);
@@ -52,4 +52,10 @@ export const loginUsuario = async (req, res) => {
     console.log(err);
     res.status(500).json({ error: "Erro ao fazer login" });
   }
+};
+
+module.exports = {
+  getUsuarios,
+  registrarUsuario,
+  loginUsuario,
 };

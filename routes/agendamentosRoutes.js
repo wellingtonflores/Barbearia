@@ -1,5 +1,6 @@
-import express from "express";
-import { getAgendamentos, criarAgendamento, atualizarAgendamento, deletarAgendamento } from "../src/controllers/agendamentosController.js";
+const express = require("express");
+const { getAgendamentos, criarAgendamento, atualizarAgendamento, deletarAgendamento } = require("../src/controllers/agendamentosController.js");
+
 
 const router = express.Router();
 
@@ -8,4 +9,4 @@ router.post("/", criarAgendamento);
 router.put("/:id", atualizarAgendamento);
 router.delete("/:id", deletarAgendamento);
 
-export default router;
+module.exports = router;

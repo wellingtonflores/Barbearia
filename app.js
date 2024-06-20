@@ -1,9 +1,10 @@
-import express from "express";
-import bodyParser from "body-parser";
-import usuariosRoutes from "./routes/usuariosRoutes.js";
-import servicosRoutes from "./routes/servicosRoutes.js";
-import funcionariosRoutes from "./routes/funcionariosRoutes.js";
-import agendamentosRoutes from "./routes/agendamentosRoutes.js";
+const express =  require("express");
+const bodyParser = require("body-parser");
+const usuariosRoutes = require("./routes/usuariosRoutes.js");
+const servicosRoutes = require("./routes/servicosRoutes.js");
+const funcionariosRoutes = require("./routes/funcionariosRoutes.js");
+const agendamentosRoutes = require("./routes/agendamentosRoutes.js");
+const session = require("express-session");
 
 
 const app = express();

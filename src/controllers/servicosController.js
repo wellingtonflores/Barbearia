@@ -1,6 +1,7 @@
-import queryDB from "../../utils/queryDB.js";
+const { get } = require("../../routes/agendamentosRoutes");
+const queryDB = require("../../utils/queryDB")
 
-export const getServicos = async (req, res) => {
+const getServicos = async (req, res) => {
   try {
     const servicos = await queryDB("SELECT * FROM servicos");
     res.json(servicos);
@@ -9,7 +10,7 @@ export const getServicos = async (req, res) => {
   }
 };
 
-export const criarServico = async (req, res) => {
+const criarServico = async (req, res) => {
   const { nome, preco } = req.body;
   try {
     await queryDB("INSERT INTO servicos (nome, preco) VALUES ($1, $2)", [nome, preco]);
@@ -20,7 +21,7 @@ export const criarServico = async (req, res) => {
   }
 };
 
-export const atualizarServico = async (req, res) => {
+const atualizarServico = async (req, res) => {
   const { nome, preco } = req.body;
   const id = req.params.id;
   try {
@@ -32,7 +33,7 @@ export const atualizarServico = async (req, res) => {
   }
 };
 
-export const deletarServico = async (req, res) => {
+const deletarServico = async (req, res) => {
   const id = req.params.id;
   try {
     await queryDB("DELETE FROM servicos WHERE id = $1", [id]);
@@ -41,4 +42,11 @@ export const deletarServico = async (req, res) => {
   } catch (err) {
     res.json(err);
   }
+};
+
+module.exports = {
+  getServicos,
+  criarServico,
+  atualizarServico,
+  deletarServico,
 };

@@ -1,7 +1,7 @@
-import queryDB from "../../utils/queryDB.js";
-import db from "../../models/db.js"
+const queryDB = require("../../utils/queryDB")
+const db = require("../../models/db.js")
 
-export const getAgendamentos = async (req, res) => {
+const getAgendamentos = async (req, res) => {
   try {
     const agendamentos = await db.queryDB("SELECT * FROM agendamentos");
     res.json(agendamentos);
@@ -10,7 +10,7 @@ export const getAgendamentos = async (req, res) => {
   }
 };
 
-export const criarAgendamento = async (req, res) => {
+const criarAgendamento = async (req, res) => {
   const { usuarios_id, funcionarios_id, servicos_id, data, horario, status } = req.body;
   try {
     await db.query("INSERT INTO agendamentos (usuarios_id, funcionarios_id, servicos_id, data, horario, status) VALUES ($1, $2, $3, $4, $5, $6)", 
@@ -22,7 +22,7 @@ export const criarAgendamento = async (req, res) => {
   }
 };
 
-export const atualizarAgendamento = async (req, res) => {
+const atualizarAgendamento = async (req, res) => {
   const { usuarios_id, funcionarios_id, servicos_id, data, horario, status } = req.body;
   const id = req.params.id;
   try {
@@ -34,7 +34,7 @@ export const atualizarAgendamento = async (req, res) => {
   }
 };
 
-export const deletarAgendamento = async (req, res) => {
+const deletarAgendamento = async (req, res) => {
   const id = req.params.id;
   try {
     await queryDB("DELETE FROM agendamentos WHERE id = $1", [id]);
@@ -43,4 +43,11 @@ export const deletarAgendamento = async (req, res) => {
   } catch (err) {
     res.json(err);
   }
+};
+
+module.exports = {
+  getAgendamentos,
+  criarAgendamento,
+  atualizarAgendamento,
+  deletarAgendamento,
 };

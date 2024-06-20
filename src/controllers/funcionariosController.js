@@ -1,6 +1,6 @@
-import queryDB from "../../utils/queryDB.js";
+const queryDB = require("../../utils/queryDB")
 
-export const getFuncionarios = async (req, res) => {
+const getFuncionarios = async (req, res) => {
   try {
     const funcionarios = await queryDB("SELECT * FROM funcionarios");
     res.json(funcionarios);
@@ -9,7 +9,7 @@ export const getFuncionarios = async (req, res) => {
   }
 };
 
-export const criarFuncionario = async (req, res) => {
+const criarFuncionario = async (req, res) => {
   const { nome, email, telefone, funcao } = req.body;
   try {
     await queryDB("INSERT INTO funcionarios (nome, email, telefone, funcao) VALUES ($1, $2, $3, $4)", [nome, email, telefone, funcao]);
@@ -20,7 +20,7 @@ export const criarFuncionario = async (req, res) => {
   }
 };
 
-export const atualizarFuncionario = async (req, res) => {
+const atualizarFuncionario = async (req, res) => {
   const { nome, email, telefone, funcao } = req.body;
   const id = req.params.id;
   try {
@@ -32,7 +32,7 @@ export const atualizarFuncionario = async (req, res) => {
   }
 };
 
-export const deletarFuncionario = async (req, res) => {
+const deletarFuncionario = async (req, res) => {
   const id = req.params.id;
   try {
     await queryDB("DELETE FROM funcionarios WHERE id = $1", [id]);
@@ -41,4 +41,11 @@ export const deletarFuncionario = async (req, res) => {
   } catch (err) {
     res.json(err);
   }
+};
+
+module.exports = {
+  getFuncionarios,
+  criarFuncionario,
+  atualizarFuncionario,
+  deletarFuncionario,
 };

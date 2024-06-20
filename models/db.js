@@ -1,4 +1,4 @@
-import pg from "pg";
+const pg = require("pg");
 
 const db = new pg.Client({
   user: "postgres",
@@ -8,6 +8,12 @@ const db = new pg.Client({
   port: 5432,
 });
 
-db.connect();
+db.connect((err) => {
+  if (err) {
+    console.error("Erro ao conectar ao banco de dados:", err);
+  } else {
+    console.log("Conectado ao banco de dados com sucesso.");
+  }
+});
 
-export default db;
+module.exports = db;
