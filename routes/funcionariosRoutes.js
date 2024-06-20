@@ -1,5 +1,5 @@
 import express from "express";
-import { getFuncionarios, criarFuncionario, atualizarFuncionario, deletarFuncionario } from "../controllers/funcionariosController.js";
+import { getFuncionarios, criarFuncionario, atualizarFuncionario, deletarFuncionario } from "../src/controllers/funcionariosController.js";
 
 const router = express.Router();
 

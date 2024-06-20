@@ -1,9 +1,9 @@
-import queryDB from "../utils/queryDB.js";
-import db from "../models/db.js"
+import queryDB from "../../utils/queryDB.js";
+import db from "../../models/db.js"
 
 export const getAgendamentos = async (req, res) => {
   try {
-    const agendamentos = await db.query("SELECT * FROM agendamentos");
+    const agendamentos = await db.queryDB("SELECT * FROM agendamentos");
     res.json(agendamentos);
   } catch (err) {
     res.json(err);

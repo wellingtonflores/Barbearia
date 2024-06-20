@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import queryDB from "../utils/queryDB.js";
+import queryDB from "../../utils/queryDB.js";
 
 const selecionaUsuarioEmail = () => "SELECT * FROM usuarios WHERE email = $1";
 
@@ -8,7 +8,8 @@ export const getUsuarios = async (req, res) => {
     const usuarios = await queryDB("SELECT * FROM usuarios");
     res.json(usuarios);
   } catch (error) {
-    res.json(error);
+    console.log(error);
+    res.status(500).json({ error: "Erro ao buscar usuários" });
   }
 };
 
@@ -17,7 +18,7 @@ export const registrarUsuario = async (req, res) => {
   try {
     const checkResult = await queryDB(selecionaUsuarioEmail(), [email]);
     if (checkResult.length > 0) {
-      res.json("Email já existente, tente fazer login");
+      res.status(400).json("Email já existente, tente fazer login");
     } else {
       const senhaHashed = await bcrypt.hash(senha, 10);
       await queryDB(
@@ -27,7 +28,8 @@ export const registrarUsuario = async (req, res) => {
       res.status(200).json("Usuário criado com sucesso");
     }
   } catch (err) {
-    res.json(err);
+    console.log(err);
+    res.status(500).json({ error: "Erro ao registrar usuário" });
   }
 };
 
@@ -39,14 +41,15 @@ export const loginUsuario = async (req, res) => {
       const usuario = resultado[0];
       const match = await bcrypt.compare(senha, usuario.senha);
       if (match) {
-        res.json("Logou");
+        res.status(200).json("Logado com sucesso");
       } else {
-        res.json("Senha incorreta, tente novamente");
+        res.status(400).json("Senha incorreta, tente novamente");
       }
     } else {
-      res.json("Email não existe");
+      res.status(404).json("Email não existe");
     }
   } catch (err) {
     console.log(err);
+    res.status(500).json({ error: "Erro ao fazer login" });
   }
 };

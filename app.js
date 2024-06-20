@@ -5,6 +5,7 @@ import servicosRoutes from "./routes/servicosRoutes.js";
 import funcionariosRoutes from "./routes/funcionariosRoutes.js";
 import agendamentosRoutes from "./routes/agendamentosRoutes.js";
 
+
 const app = express();
 const port = process.env.PORT || 4000;
 

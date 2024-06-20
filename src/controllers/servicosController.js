@@ -1,4 +1,4 @@
-import queryDB from "../utils/queryDB.js";
+import queryDB from "../../utils/queryDB.js";
 
 export const getServicos = async (req, res) => {
   try {
