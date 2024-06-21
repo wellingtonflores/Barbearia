@@ -1,4 +1,5 @@
 const express =  require("express");
+const session = require("./config/session.js");
 const bodyParser = require("body-parser");
 const usuariosRoutes = require("./routes/usuariosRoutes.js");
 const servicosRoutes = require("./routes/servicosRoutes.js");
@@ -10,6 +11,7 @@ const port = process.env.PORT || 4000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(session);
 
 app.use("/api/usuarios", usuariosRoutes);
 app.use("/api/servicos", servicosRoutes);
