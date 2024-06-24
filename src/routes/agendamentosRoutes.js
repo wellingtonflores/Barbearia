@@ -1,5 +1,5 @@
 const express = require("express");
-const { getAgendamentos, criarAgendamento, atualizarAgendamento, deletarAgendamento } = require("../src/controllers/agendamentosController.js");
+const { getAgendamentos, criarAgendamento, atualizarAgendamento, deletarAgendamento } = require("../controllers/agendamentosController");
 
 
 const router = express.Router();

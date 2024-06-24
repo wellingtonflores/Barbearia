@@ -1,6 +1,8 @@
 const bcrypt = require("bcrypt");
-const queryDB = require("../../utils/queryDB.js");
+const queryDB = require("../utils/queryDB");
 const { query } = require("express");
+const jwt = require("jsonwebtoken");
+const { secret, expiresIn } = require("../config/jwt");
 
 const selecionaUsuarioEmail = () => "SELECT * FROM usuarios WHERE email = $1";
 
@@ -16,35 +18,30 @@ const getUsuarios = async (req, res) => {
 
 const getPerfilUsuario = async (req, res) => {
   try {
-    if(req.session.user){
-      console.log(req.session.user);
-      const usuario = req.session.user = {
-        id: req.session.user.id,
-        nome: req.session.user.nome,
-        email: req.session.user.email,
-      }
-      res.json(usuario);
-    } else {
-      console.log("Usuario não logado");
-    }
-  } catch (error){
+    const { id, email, nome } = req.user;
+    res.json({ id, email, nome });
+  } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Erro ao buscar perfil do usuario" });
   }
 }
 
 const getAgendamentosUsuario = async (req, res) => {
- try {
-    if(req.session.user){
-      const agendamentosUsuario = await queryDB("SELECT usuarios.nome AS Nome_Completo, servicos.nome AS Nome_do_Serviço, servicos.preco AS Preço_do_serviço, funcionarios.nome AS Nome_do_funcionario, agendamentos.data AS data_do_agendamento, agendamentos.horario AS horario_do_agendamento FROM agendamentos JOIN usuarios ON usuarios.id = agendamentos.usuarios_id JOIN servicos ON servicos.id = agendamentos.servicos_id JOIN funcionarios ON funcionarios.id = agendamentos.funcionarios_id WHERE usuarios.id = $1",
-        [req.session.user.id]);
-      res.json(agendamentosUsuario);
-    } else {
-      console.log("Usuario não logado");
-    }
-  } catch (error){
+  try {
+    const agendamentosUsuario = await queryDB(
+      `SELECT usuarios.nome AS Nome_Completo, servicos.nome AS Nome_do_Serviço, 
+      servicos.preco AS Preço_do_serviço, funcionarios.nome AS Nome_do_funcionario, 
+      agendamentos.data AS data_do_agendamento, agendamentos.horario AS horario_do_agendamento 
+      FROM agendamentos 
+      JOIN usuarios ON usuarios.id = agendamentos.usuarios_id 
+      JOIN servicos ON servicos.id = agendamentos.servicos_id 
+      JOIN funcionarios ON funcionarios.id = agendamentos.funcionarios_id 
+      WHERE usuarios.id = $1`, [req.user.id]
+    );
+    res.json(agendamentosUsuario);
+  } catch (error) {
     console.log(error);
-    res.status(500).json({ error: "Erro ao buscar perfil do usuario" });
+    res.status(500).json({ error: "Erro ao buscar agendamentos do usuário" });
   }
 }
 
@@ -76,12 +73,18 @@ const loginUsuario = async (req, res) => {
       const usuario = resultado[0];
       const match = await bcrypt.compare(senha, usuario.senha);
       if (match) {
-        const session = req.session.user = { 
-          email: usuario.email,
-          id: usuario.id, 
-          nome: usuario.nome,
-        }
-        res.status(200).json("Logado com sucesso");
+        const token = jwt.sign(
+          {
+            id: usuario.id, 
+            email: usuario.email, 
+            nome: usuario.nome 
+          },
+            secret,
+          { 
+            expiresIn 
+          }
+        );
+        res.status(200).json({ mensagem: "Logado com sucesso", token});
       } else {
         res.status(400).json("Senha incorreta, tente novamente");
       }

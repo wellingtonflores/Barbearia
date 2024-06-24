@@ -1,5 +1,5 @@
-const { get } = require("../../routes/agendamentosRoutes");
-const queryDB = require("../../utils/queryDB")
+const { get } = require("../routes/agendamentosRoutes");
+const queryDB = require("../utils/queryDB")
 
 const getServicos = async (req, res) => {
   try {
