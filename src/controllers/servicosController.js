@@ -1,12 +1,11 @@
-const { get } = require("../routes/agendamentosRoutes");
-const queryDB = require("../utils/queryDB")
+const queryDB = require("../utils/queryDB");
 
 const getServicos = async (req, res) => {
   try {
     const servicos = await queryDB("SELECT * FROM servicos");
-    res.json(servicos);
+    res.status(200).json(servicos);
   } catch (err) {
-    res.json(err);
+    res.status(500).json({ error: "Erro ao buscar serviços" });
   }
 };
 
@@ -15,9 +14,9 @@ const criarServico = async (req, res) => {
   try {
     await queryDB("INSERT INTO servicos (nome, preco) VALUES ($1, $2)", [nome, preco]);
     const servicos = await queryDB("SELECT * FROM servicos");
-    res.json(servicos);
+    res.status(201).json(servicos);
   } catch (err) {
-    res.json(err);
+    res.status(500).json({ error: "Erro ao criar serviço" });
   }
 };
 
@@ -27,9 +26,9 @@ const atualizarServico = async (req, res) => {
   try {
     await queryDB("UPDATE servicos SET nome = $1, preco = $2 WHERE id = $3", [nome, preco, id]);
     const servicos = await queryDB("SELECT * FROM servicos");
-    res.json(servicos);
+    res.status(200).json(servicos);
   } catch (err) {
-    res.json(err);
+    res.status(500).json({ error: "Erro ao atualizar serviço" });
   }
 };
 
@@ -38,9 +37,9 @@ const deletarServico = async (req, res) => {
   try {
     await queryDB("DELETE FROM servicos WHERE id = $1", [id]);
     const servicos = await queryDB("SELECT * FROM servicos");
-    res.json(servicos);
+    res.status(200).json(servicos);
   } catch (err) {
-    res.json(err);
+    res.status(500).json({ error: "Erro ao deletar serviço" });
   }
 };
 

@@ -5,7 +5,7 @@ const usuarioLogado = (req, res, next) => {
   const authorization = req.headers.authorization;
 
   if(!authorization){
-    return res.status(401).json({erros: ["Precisa estar logado"]})
+    return res.status(401).json({erros: ["Precisa do token e estar logado"]})
   }
 
   const token = authorization.split(" ")[1];
