@@ -20,8 +20,8 @@
 
 <h2 id="started">🚀 Getting started</h2>
 
-cd Barbearia
-npm i
+- cd Barbearia
+- npm i
 
 
 <h3>Prerequisites</h3>
