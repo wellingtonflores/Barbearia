@@ -5,45 +5,45 @@ A Barbearia do Tim API é uma API RESTful que permite a gestão de uma barbearia
 Endpoints
 Usuários
 GET /api/usuarios
-
 Retorna uma lista de todos os usuários.
+
 GET /api/usuarios/{id}
-
 Retorna os detalhes de um usuário específico.
+
 POST /api/usuarios
-
 Cria um novo usuário.
+
 POST /api/usuarios/registrar
-
 Registra um usuário.
+
 POST /api/usuarios/login
-
 Realiza o login de um usuário.
+
 PUT /api/usuarios/{id}
-
 Atualiza as informações de um usuário.
+
 DELETE /api/usuarios/{id}
-
 Remove um usuário.
-GET /api/usuarios/perfil/agendamentos
 
+GET /api/usuarios/perfil/agendamentos
 Retorna os agendamentos do usuário logado.
+
 Barbeiros
 GET /api/barbeiros
-
 Retorna uma lista de todos os barbeiros.
+
 GET /api/barbeiros/{id}
-
 Retorna os detalhes de um barbeiro específico.
+
 POST /api/barbeiros
-
 Cria um novo barbeiro.
+
 PUT /api/barbeiros/{id}
-
 Atualiza as informações de um barbeiro.
-DELETE /api/barbeiros/{id}
 
+DELETE /api/barbeiros/{id}
 Remove um barbeiro.
+
 Serviços
 GET /api/servicos
 Retorna uma lista de todos os serviços oferecidos.
