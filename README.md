@@ -46,36 +46,36 @@ DELETE /api/barbeiros/{id}
 Remove um barbeiro.
 Serviços
 GET /api/servicos
-
 Retorna uma lista de todos os serviços oferecidos.
+
 GET /api/servicos/{id}
-
 Retorna os detalhes de um serviço específico.
+
 POST /api/servicos
-
 Cria um novo serviço.
+
 PUT /api/servicos/{id}
-
 Atualiza as informações de um serviço.
-DELETE /api/servicos/{id}
 
+DELETE /api/servicos/{id}
 Remove um serviço.
+
 Agendamentos
 GET /api/agendamentos
-
 Retorna uma lista de todos os agendamentos.
+
 GET /api/agendamentos/{id}
-
 Retorna os detalhes de um agendamento específico.
+
 POST /api/agendamentos
-
 Cria um novo agendamento.
+
 PUT /api/agendamentos/{id}
-
 Atualiza as informações de um agendamento.
-DELETE /api/agendamentos/{id}
 
+DELETE /api/agendamentos/{id}
 Remove um agendamento.
+
 Como Usar
 Requisitos
 Node.js
