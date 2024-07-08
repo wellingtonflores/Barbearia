@@ -68,7 +68,7 @@ npm run dev
 | <kbd>GET /api/usuarios</kbd>     | retorna a lista de todos os usuarios [response details](#get-user-detail)
 | <kbd>POST /api/login</kbd>     | loga o usuario caso os dados estejam certo e retorna um token bearer [request details](#post-login-detail)
 
-<h3 id="get-auth-detail">GET /api/usuarios</h3>
+<h3 id="get-user-detail">GET /api/usuarios</h3>
 
 **RESPONSE**
 ```json
@@ -79,7 +79,7 @@ npm run dev
 }
 ```
 
-<h3 id="post-auth-detail">POST /api/login</h3>
+<h3 id="post-login-detail">POST /api/login</h3>
 
 **REQUEST**
 ```json
