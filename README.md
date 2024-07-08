@@ -19,14 +19,9 @@
 - PostgreeSQL
 
 <h2 id="started">🚀 Getting started</h2>
-```
 - cd Barbearia
 - npm i
-```
-## Código Python
-```python
-def ola_mundo():
-    print("Olá, mundo!")
+
 
 <h3>Prerequisites</h3>
 
