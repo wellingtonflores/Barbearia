@@ -13,8 +13,7 @@ const criarAgendamento = async (req, res) => {
   const { usuarios_id, funcionarios_id, servicos_id, data, horario, status } = req.body;
   try {
     await queryDB("INSERT INTO agendamentos (usuarios_id, funcionarios_id, servicos_id, data, horario, status) VALUES ($1, $2, $3, $4, $5, $6)", [usuarios_id, funcionarios_id, servicos_id, data, horario, status]);
-    const agendamentos = await queryDB("SELECT * FROM agendamentos");
-    res.status(201).json(agendamentos);
+    res.status(201);
   } catch (err) {
     res.status(500).json({ error: "Erro ao criar agendamento" });
   }

@@ -7,7 +7,7 @@ const {
   getAgendamentosUsuario,
 } = require("../controllers/usuariosController");
 const usuarioLogado = require("../middlewares/usuarioLogado");
-const { verificaEmailValido, verificaSenhaForte } = require("../middlewares/validacaoEmailSenha");
+const { verificaEmailValido, verificaSenhaForte, verificaTelefoneValido } = require("../middlewares/validacaoEmailSenha");
 
 const router = express.Router();
 
@@ -16,6 +16,7 @@ router.post(
   "/registrar",
   verificaEmailValido,
   verificaSenhaForte,
+  verificaTelefoneValido,
   registrarUsuario
 );
 router.post("/login", verificaEmailValido, loginUsuario);
