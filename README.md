@@ -1,108 +1,103 @@
-Barbearia do Tim API
-Descrição
-A Barbearia do Tim API é uma API RESTful que permite a gestão de uma barbearia. A API oferece endpoints para gerenciar usuários, barbeiros, serviços e agendamentos.
+<h1 align="center" style="font-weight: bold;">Barbearia do Tim 💻</h1>
 
-Endpoints
-Usuários
-GET /api/usuarios
-Retorna uma lista de todos os usuários.
+<p align="center">
+ <a href="#tech">Technologies</a> • 
+ <a href="#started">Getting Started</a> • 
+  <a href="#routes">API Endpoints</a> •
+ <a href="#colab">Collaborators</a> •
+ <a href="#contribute">Contribute</a>
+</p>
 
-GET /api/usuarios/{id}
-Retorna os detalhes de um usuário específico.
+<p align="center">
+    <b>A Barbearia do Tim API é uma API RESTful que permite a gestão de uma barbearia. A API oferece endpoints para gerenciar usuários, barbeiros, serviços e agendamentos.
+</b>
+</p>
 
-POST /api/usuarios
-Cria um novo usuário.
+<h2 id="technologies">💻 Technologies</h2>
 
-POST /api/usuarios/registrar
-Registra um usuário.
+- NodeJS
+- PostgreeSQL
 
-POST /api/usuarios/login
-Realiza o login de um usuário.
+<h2 id="started">🚀 Getting started</h2>
 
-PUT /api/usuarios/{id}
-Atualiza as informações de um usuário.
+cd Barbearia
+npm i
 
-DELETE /api/usuarios/{id}
-Remove um usuário.
 
-GET /api/usuarios/perfil/agendamentos
-Retorna os agendamentos do usuário logado.
+<h3>Prerequisites</h3>
 
-Barbeiros
-GET /api/barbeiros
-Retorna uma lista de todos os barbeiros.
 
-GET /api/barbeiros/{id}
-Retorna os detalhes de um barbeiro específico.
+- [NodeJS](https://github.com/)
+- [Git 2](https://github.com)   
 
-POST /api/barbeiros
-Cria um novo barbeiro.
+<h3>Cloning</h3>
 
-PUT /api/barbeiros/{id}
-Atualiza as informações de um barbeiro.
+How to clone your project
 
-DELETE /api/barbeiros/{id}
-Remove um barbeiro.
+```bash
+git https://github.com/wellingtonflores/Barbearia
+```
 
-Serviços
-GET /api/servicos
-Retorna uma lista de todos os serviços oferecidos.
+<h3>Config .env variables</h2>
 
-GET /api/servicos/{id}
-Retorna os detalhes de um serviço específico.
 
-POST /api/servicos
-Cria um novo serviço.
-
-PUT /api/servicos/{id}
-Atualiza as informações de um serviço.
-
-DELETE /api/servicos/{id}
-Remove um serviço.
-
-Agendamentos
-GET /api/agendamentos
-Retorna uma lista de todos os agendamentos.
-
-GET /api/agendamentos/{id}
-Retorna os detalhes de um agendamento específico.
-
-POST /api/agendamentos
-Cria um novo agendamento.
-
-PUT /api/agendamentos/{id}
-Atualiza as informações de um agendamento.
-
-DELETE /api/agendamentos/{id}
-Remove um agendamento.
-
-Como Usar
-Requisitos
-Node.js
-npm
-bcrypt
-dotenv
-express
-jsonwebtoken
-
-Configuração
-Crie um arquivo .env na raiz do projeto e configure as variáveis de ambiente conforme necessário. Exemplo:
-
-env
-Copiar código
+```yaml
 PORT=4000
 DB_HOST=localhost
 DB_USER=root
 DB_PASS=password
 DB_NAME=barbershop
+```
 
-Contribuição
-Fork este repositório.
-Crie uma branch: git checkout -b minha-nova-feature.
-Faça suas alterações e commite: git commit -m 'Adiciona nova feature'.
-Envie para o repositório remoto: git push origin minha-nova-feature.
-Abra um pull request.
+<h3>Starting</h3>
 
-Licença
-Este projeto está licenciado sob a MIT License. Veja o arquivo LICENSE para mais detalhes.
+How to start your project
 
+```bash
+cd Barbearia
+npm run dev
+```
+
+<h2 id="routes">📍 API Endpoints</h2>
+
+​
+| route               | description                                          
+|----------------------|-----------------------------------------------------
+| <kbd>GET /api/usuarios</kbd>     | retorna a lista de todos os usuarios [response details](#get-user-detail)
+| <kbd>POST /api/login</kbd>     | loga o usuario caso os dados estejam certo e retorna um token bearer [request details](#post-login-detail)
+
+<h3 id="get-auth-detail">GET /api/usuarios</h3>
+
+**RESPONSE**
+```json
+{
+  "name": "Wellington Flores",
+  "age": 23,
+  "email": "wellington@gmail.com"
+}
+```
+
+<h3 id="post-auth-detail">POST /api/login</h3>
+
+**REQUEST**
+```json
+{
+  "username": "wellingtonflores",
+  "password": "123"
+}
+```
+
+**RESPONSE**
+```json
+{
+  "token": "OwoMRHsaQwyAgVoc3OXmL1JhMVUYXGGBbCTK0GBgiYitwQwjf0gVoBmkbuyy0pSi"
+}
+```
+
+<h2 id="contribute">📫 Contribute</h2>
+
+
+1. `git clone https://github.com/wellingtonflores/Barbearia`
+2. `git checkout -b feature/Barbearia`
+3. Follow commit patterns
+4. Open a Pull Request explaining the problem solved or feature made, if exists, append screenshot of visual modifications and wait for the review!
