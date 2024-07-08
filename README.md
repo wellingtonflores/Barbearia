@@ -29,10 +29,10 @@
 
 - [NodeJS](https://github.com/)
 - [Git 2](https://github.com)   
+- [PostgreSQL](https://www.postgresql.org)
 
 <h3>Cloning</h3>
 
-How to clone your project
 
 ```bash
 git https://github.com/wellingtonflores/Barbearia
