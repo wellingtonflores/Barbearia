@@ -23,6 +23,10 @@
 - cd Barbearia
 - npm i
 ```
+## Código Python
+```python
+def ola_mundo():
+    print("Olá, mundo!")
 
 <h3>Prerequisites</h3>
 
