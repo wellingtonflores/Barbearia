@@ -5,6 +5,7 @@ const {
   loginUsuario,
   getPerfilUsuario,
   getAgendamentosUsuario,
+  atualizaNomeUsuario,
 } = require("../controllers/usuariosController");
 const usuarioLogado = require("../middlewares/usuarioLogado");
 const { verificaEmailValido, verificaSenhaForte, verificaTelefoneValido } = require("../middlewares/validacaoEmailSenha");
@@ -22,5 +23,6 @@ router.post(
 router.post("/login", verificaEmailValido, loginUsuario);
 router.get("/perfil", usuarioLogado, getPerfilUsuario);
 router.get("/perfil/agendamentos", usuarioLogado, getAgendamentosUsuario);
+router.patch("/perfil/teste",  usuarioLogado, atualizaNomeUsuario);
 
 module.exports = router;

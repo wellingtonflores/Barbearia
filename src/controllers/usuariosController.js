@@ -17,7 +17,9 @@ const getUsuarios = async (req, res) => {
 const getPerfilUsuario = async (req, res) => {
   try {
     const { id, email, nome } = req.user;
+    next();
     res.status(200).json({ id, email, nome });
+    
   } catch (error) {
     res.status(500).json({ error: "Erro ao buscar perfil do usuario" });
   }
@@ -91,10 +93,25 @@ const loginUsuario = async (req, res) => {
   }
 };
 
+const atualizaNomeUsuario = async (req, res) =>{
+  const usuarioId = req.user.id
+  const usuarioNovoNome  = req.body.nome
+  try {
+    if (!usuarioNovoNome) {
+      return res.status(400).json({ error: "Novo nome obrigatório" }); 
+    }
+    await queryDB("UPDATE usuarios SET nome = $1 WHERE usuarios.id = $2",[usuarioNovoNome, usuarioId]);
+    res.status(200).json({ message: "Usuario com o nome trocado com sucesso"});
+  } catch (error) {
+    res.status(500).json({ error: "Erro ao atualizar nome do usuario "});
+  }
+}
+
 module.exports = {
   getUsuarios,
   registrarUsuario,
   loginUsuario,
   getPerfilUsuario,
   getAgendamentosUsuario,
+  atualizaNomeUsuario,
 };
