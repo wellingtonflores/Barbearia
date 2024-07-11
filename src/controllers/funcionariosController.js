@@ -14,7 +14,7 @@ const criarFuncionario = async (req, res) => {
   try {
     await queryDB("INSERT INTO funcionarios (nome, email, telefone, funcao) VALUES ($1, $2, $3, $4)", [nome, email, telefone, funcao]);
     const funcionarios = await queryDB("SELECT * FROM funcionarios");
-    res.status(201).json(funcionarios);
+    res.status(201).json({ message: "Funcionario criado com sucesso"});
   } catch (err) {
     res.status(500).json({ error: "Erro ao criar funcionário" });
   }
@@ -45,7 +45,7 @@ const deletarFuncionario = async (req, res) => {
   try {
     await queryDB("DELETE FROM funcionarios WHERE id = $1", [id]);
     const funcionarios = await queryDB("SELECT * FROM funcionarios");
-    res.status(200).json(funcionarios);
+    res.status(200).json({ message: "Funcionario deletado com sucesso" });
   } catch (err) {
     res.status(500).json({ error: "Erro ao deletar funcionário" });
   }

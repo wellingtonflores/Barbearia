@@ -65,10 +65,30 @@ npm run dev
 ​
 | route               | description                                          
 |----------------------|-----------------------------------------------------
-| <kbd>GET /api/usuarios</kbd>     | retorna a lista de todos os usuarios [response details](#get-user-detail)
-| <kbd>POST /api/login</kbd>     | loga o usuario caso os dados estejam certo e retorna um token bearer [request details](#post-login-detail)
+| <kbd>GET /api/usuarios</kbd>     | retorna a lista de todos os usuarios 
+  <kbd>GET /api/perfil</kbd>     | retorna o perfil do usuario logado com id, nome e email.
+  <kbd>GET /api/perfil/agendamentos</kbd>     | retorna todos os agendamentos do usuario logado.
+| <kbd>POST /api/registrar</kbd>     | registra o usuario no DB caso os dados estejam corretos.
+  <kbd>POST /api/login</kbd>     | loga o usuario caso os dados estejam certo e retorna um token bearer.
+  <kbd>PATCH /api/perfil</kbd>     | atualiza o nome do usuario logado caso esteja tudo correto.
+  |----------------------|-----------------------------------------------------
+  <kbd>GET /api/servicos</kbd>     | retorna a lista de todos os serviços 
+  <kbd>POST /api/servicos</kbd>     | cria um novo serviço.
+  <kbd>PUT /api/servicos/:id</kbd>     | edita o serviço de acordo com o id fornecido se os dados estiverem corretos.
+| <kbd>DELETE /api/servicos/:id</kbd>     | deleta serviço de acordo com o id fornecido.
+  |----------------------|-----------------------------------------------------
+  <kbd>GET /api/funcionarios</kbd>     | retorna a lista de todos os funcionarios. 
+  <kbd>POST /api/funcionarios</kbd>     | cria um novo funcionario. 
+  <kbd>PATCH /api/funcionarios/:id</kbd>     | edita um funcionario de acordo com id passado e edita se estiver todos os dados corretos. 
+  <kbd>DELETE /api/funcionarios:id</kbd>     | deleta um funcionario de acordo com o id passado. 
+  |----------------------|-----------------------------------------------------
+  <kbd>GET /api/agendamentos</kbd>     | retorna a lista de todos os funcionarios.
+  <kbd>POST /api/agendamentos</kbd>     | cria um novo funcionario.
+  <kbd>PUT /api/agendamentos/:id</kbd>     | edita um agendamento de acordo com id passado e edita se estiver todos os dados corretos.
+  <kbd>DELETE /api/agendamentos:id</kbd>     | deleta um agendamento de acordo com o id passado.
+ 
 
-<h3 id="get-user-detail">GET /api/usuarios</h3>
+<h3>GET /api/usuarios</h3>
 
 **RESPONSE**
 ```json
@@ -79,7 +99,57 @@ npm run dev
 }
 ```
 
-<h3 id="post-login-detail">POST /api/login</h3>
+<h3>GET /api/perfil</h3>
+
+**RESPONSE**
+```json
+  {
+  "id": 1,
+  "nome": "Wellington Flores",
+  "email": "wellington@gmail.com"
+}
+```
+
+<h3>GET /api/perfil/agendamentos</h3>
+
+**RESPONSE**
+```json
+[
+  {
+    "id": 1,
+    "data_hora": "2024-07-12T10:00:00",
+    "servico": "Corte de Cabelo",
+    "funcionario": "Carlos Pereira"
+  },
+  {
+    "id": 2,
+    "data_hora": "2024-07-15T15:30:00",
+    "servico": "Barba",
+    "funcionario": "Ana Souza"
+  }
+]
+```
+
+<h3>POST /api/registrar</h3>
+
+**REQUEST**
+```json
+{
+  "nome": "Wellington Flores",
+  "email": "wellington@gmail.com",
+  "senha": "senha123",
+  "whatsapp": "11987654321"
+}
+```
+
+**RESPONSE**
+```json
+{
+  "message": "Usuario criado com sucesso",
+}
+```
+
+<h3>POST /api/login</h3>
 
 **REQUEST**
 ```json
@@ -94,6 +164,240 @@ npm run dev
 {
   "token": "OwoMRHsaQwyAgVoc3OXmL1JhMVUYXGGBbCTK0GBgiYitwQwjf0gVoBmkbuyy0pSi"
 }
+```
+
+<h3>PATCH /api/perfil</h3>
+
+**REQUEST**
+```json
+{
+  "nome": "Wellington Silva"
+}
+```
+
+**RESPONSE**
+```json
+{
+  "message": "Usuario com o nome trocado com sucesso",
+}
+```
+
+<h3>GET /api/servicos</h3>
+
+**RESPONSE**
+```json
+[
+  {
+    "id": 1,
+    "nome": "Corte de Cabelo",
+    "preco": 30.00
+  },
+  {
+    "id": 2,
+    "nome": "Barba",
+    "preco": 20.00
+  }
+]
+```
+
+<h3>POST /api/servicos</h3>
+
+**REQUEST**
+```json
+{
+  "nome": "Manicure",
+  "preco": 25.00
+}
+```
+
+**RESPONSE**
+```json
+{
+  "message": "Serviço criado com sucesso",
+}
+```
+
+<h3>PUT /api/servicos</h3>
+
+**REQUEST**
+```json
+{
+  "nome": "Corte de Cabelo Masculino",
+  "preco": 35.00
+}
+```
+
+**RESPONSE**
+```json
+{
+  "message": "Serviço alterado com sucesso",
+}
+```
+
+<h3>DELETE /api/servicos</h3>
+
+**REQUEST**
+```json
+(No body content)
+```
+
+**RESPONSE**
+```json
+{
+  "message": "Serviço deletado com sucesso",
+}
+```
+
+<h3>GET /api/funcionarios</h3>
+
+**RESPONSE**
+```json
+[
+  {
+    "id": 1,
+    "nome": "Carlos Pereira",
+    "email": "carlos@example.com",
+    "telefone": "11987654323",
+    "especialidade": "Corte de Cabelo"
+  },
+  {
+    "id": 2,
+    "nome": "Ana Souza",
+    "email": "ana@example.com",
+    "telefone": "11987654324",
+    "especialidade": "Barba"
+  }
+]
+```
+
+<h3>POST /api/funcionarios</h3>
+
+**REQUEST**
+```json
+{
+  "nome": "Pedro Santos",
+  "email": "pedro@example.com",
+  "telefone": "11987654325",
+  "funcao": "Manicure"
+}
+```
+
+**RESPONSE**
+```json
+{
+  "message": "Funcionario criado com sucesso",
+}
+```
+
+<h3>PATCH /api/funcionarios</h3>
+
+**REQUEST**
+```json
+{
+  "nome": "Carlos Pereira Silva"
+}
+```
+
+**RESPONSE**
+```json
+{
+  {
+    "id": 1,
+    "nome": "Carlos Pereira Atualizado",
+    "email": "carlos@example.com",
+    "telefone": "11987654323",
+    "especialidade": "Corte de Cabelo"
+  },
+}
+```
+
+
+<h3>DELETE /api/funcionarios</h3>
+
+**REQUEST**
+```json
+(No body content)
+```
+
+**RESPONSE**
+```json
+{
+ "message": "Funcionario deletado com sucesso",
+}
+```
+
+<h3>GET /api/agendamentos</h3>
+
+**RESPONSE**
+```json
+[
+  {
+    "id": 1,
+    "data_hora": "2024-07-12T10:00:00",
+    "usuario": "Wellington Flores",
+    "servico": "Corte de Cabelo",
+    "funcionario": "Carlos Pereira"
+  },
+  {
+    "id": 2,
+    "data_hora": "2024-07-15T15:30:00",
+    "usuario": "Maria Oliveira",
+    "servico": "Barba",
+    "funcionario": "Ana Souza"
+  }
+]
+```
+
+<h3>POST /api/agendamentos</h3>
+
+**REQUEST**
+```json
+{
+  "usuarios_id": 1,
+  "servicos_id": 1,
+  "funcionarios_id": 1,
+  "data_hora": "2024-07-20T14:00:00"
+}
+```
+**RESPONSE**
+```json
+  {
+    "msg": "Agendamento criado com sucesso"
+  }
+
+```
+
+
+<h3>PUT /api/agendamentos</h3>
+
+**REQUEST**
+```json
+{
+  "data_hora": "2024-07-20T15:00:00"
+}
+```
+
+**RESPONSE**
+```json
+  {
+    "msg": "Agendamento atualizado com sucesso"
+  }
+
+```
+
+<h3>DELETE /api/agendamentos</h3>
+
+**REQUEST**
+```json
+(No body content)
+```
+
+**RESPONSE**
+```json
+  {
+    "msg": "Agendamento deletado com sucesso"
+  }
+
 ```
 
 <h2 id="contribute">📫 Contribute</h2>

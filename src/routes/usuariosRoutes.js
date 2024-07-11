@@ -23,6 +23,6 @@ router.post(
 router.post("/login", verificaEmailValido, loginUsuario);
 router.get("/perfil", usuarioLogado, getPerfilUsuario);
 router.get("/perfil/agendamentos", usuarioLogado, getAgendamentosUsuario);
-router.patch("/perfil/teste",  usuarioLogado, atualizaNomeUsuario);
+router.patch("/perfil",  usuarioLogado, atualizaNomeUsuario);
 
 module.exports = router;
