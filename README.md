@@ -64,24 +64,24 @@ npm run dev
 
 ​
 | route               | description                                          
-
+|----------------------|-----------------------------------------------------
 | <kbd>GET /api/usuarios</kbd>     | retorna a lista de todos os usuarios 
   <kbd>GET /api/perfil</kbd>     | retorna o perfil do usuario logado com id, nome e email.
   <kbd>GET /api/perfil/agendamentos</kbd>     | retorna todos os agendamentos do usuario logado.
 | <kbd>POST /api/registrar</kbd>     | registra o usuario no DB caso os dados estejam corretos.
   <kbd>POST /api/login</kbd>     | loga o usuario caso os dados estejam certo e retorna um token bearer.
   <kbd>PATCH /api/perfil</kbd>     | atualiza o nome do usuario logado caso esteja tudo correto.
-
+|----------------------|-----------------------------------------------------
   <kbd>GET /api/servicos</kbd>     | retorna a lista de todos os serviços 
   <kbd>POST /api/servicos</kbd>     | cria um novo serviço.
   <kbd>PUT /api/servicos/:id</kbd>     | edita o serviço de acordo com o id fornecido se os dados estiverem corretos.
 | <kbd>DELETE /api/servicos/:id</kbd>     | deleta serviço de acordo com o id fornecido.
-
+|----------------------|-----------------------------------------------------
   <kbd>GET /api/funcionarios</kbd>     | retorna a lista de todos os funcionarios. 
   <kbd>POST /api/funcionarios</kbd>     | cria um novo funcionario. 
   <kbd>PATCH /api/funcionarios/:id</kbd>     | edita um funcionario de acordo com id passado e edita se estiver todos os dados corretos. 
   <kbd>DELETE /api/funcionarios:id</kbd>     | deleta um funcionario de acordo com o id passado. 
-
+|----------------------|-----------------------------------------------------
   <kbd>GET /api/agendamentos</kbd>     | retorna a lista de todos os funcionarios.
   <kbd>POST /api/agendamentos</kbd>     | cria um novo funcionario.
   <kbd>PUT /api/agendamentos/:id</kbd>     | edita um agendamento de acordo com id passado e edita se estiver todos os dados corretos.
