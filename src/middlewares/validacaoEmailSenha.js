@@ -1,7 +1,7 @@
 // middlewares/validacao.js
 const senhaForteRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+]).{8,}$/;
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const telefoneRegex = /^\(?\d{2}\)?[\s-]?\d{4,5}[\s-]?\d{4}$/; // Para números de telefone no Brasil
+const emailRegex = /^[^\s@]+@[^\s@]+\.(com)$/;
+const telefoneRegex = /^\(?\d{2}\)?[\s-]?\d{4,5}[\s-]?\d{4}$/; 
 
 const verificaEmailValido = (req, res, next) => {
   const { email } = req.body;

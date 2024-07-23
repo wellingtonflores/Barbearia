@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const { secret } = require("../config/jwt");
 require("../config/jwt");
 
 const usuarioLogado = (req, res, next) => {
@@ -11,7 +12,7 @@ const usuarioLogado = (req, res, next) => {
   const token = authorization.split(" ")[1];
 
   try {
-    const dados = jwt.verify(token, process.env.TOKEN_SECRET)
+    const dados = jwt.verify(token, secret)
     req.user = dados;
     return next();
     

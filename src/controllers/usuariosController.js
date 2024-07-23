@@ -16,10 +16,9 @@ const getUsuarios = async (req, res) => {
 
 const getPerfilUsuario = async (req, res) => {
   try {
-    const { id, email, nome } = req.user;
-    next();
-    res.status(200).json({ id, email, nome });
-    
+    const { id, email, nome, whatsapp, senha } = req.user;
+    res.status(200).json({ id, email, nome, whatsapp, senha });
+
   } catch (error) {
     res.status(500).json({ error: "Erro ao buscar perfil do usuario" });
   }
@@ -30,7 +29,7 @@ const getAgendamentosUsuario = async (req, res) => {
     const agendamentosUsuario = await queryDB(
       `SELECT usuarios.nome AS Nome_Completo, servicos.nome AS Nome_do_Serviço, 
       servicos.preco AS Preço_do_serviço, funcionarios.nome AS Nome_do_funcionario, 
-      agendamentos.data AS data_do_agendamento, agendamentos.horario AS horario_do_agendamento 
+      agendamentos.data AS data_do_agendamento, agendamentos.hora AS horario_do_agendamento 
       FROM agendamentos 
       JOIN usuarios ON usuarios.id = agendamentos.usuarios_id 
       JOIN servicos ON servicos.id = agendamentos.servicos_id 
@@ -74,7 +73,9 @@ const loginUsuario = async (req, res) => {
           {
             id: usuario.id, 
             email: usuario.email, 
-            nome: usuario.nome 
+            nome: usuario.nome,
+            whatsapp: usuario.whatsapp,
+            senha: usuario.senha
           },
             secret,
           { 
