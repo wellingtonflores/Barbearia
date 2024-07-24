@@ -18,7 +18,6 @@ const getPerfilUsuario = async (req, res) => {
   try {
     const { id, email, nome, whatsapp, senha } = req.user;
     res.status(200).json({ id, email, nome, whatsapp, senha });
-
   } catch (error) {
     res.status(500).json({ error: "Erro ao buscar perfil do usuario" });
   }

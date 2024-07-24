@@ -1,13 +1,11 @@
-
 const pg = require("pg");
 
-
 const db = new pg.Client({
-  user: "postgres",
-  password: "123456",
-  database: 'barbearia',
-  host: 'localhost',
-  port: '5432',
+  user: "barbeariadb_user",
+  password: "2I37eKkZbRxCycrwHYaEe60cBZ5U5ZId",
+  database: 'barbeariadb',
+  host: 'dpg-cqggoht6l47c73bvg0f0-a.oregon-postgres.render.com',
+  port: 5432,
 });
 
 db.connect((err) => {
