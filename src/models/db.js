@@ -1,11 +1,14 @@
-const pg = require("pg");
+require('dotenv').config();
 
 const db = new pg.Client({
-  user: "barbeariadb_user",
-  password: "2I37eKkZbRxCycrwHYaEe60cBZ5U5ZId",
-  database: 'barbeariadb',
-  host: 'dpg-cqggoht6l47c73bvg0f0-a.oregon-postgres.render.com',
-  port: 5432,
+  user: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASSWORD,
+  database: process.env.DATABASE_NAME,
+  host: process.env.DATABASE_HOST,
+  port: process.env.DATABASE_PORT,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 db.connect((err) => {
