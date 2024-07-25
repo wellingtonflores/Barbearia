@@ -11,11 +11,7 @@ const swaggerSpec = swaggerJSDoc({
     },
     servers: [
       {
-        url: 'http://localhost:4000/', // URL para desenvolvimento local
-        description: 'Servidor local',
-      },
-      {
-        url: 'https://barbearia-hyi0.onrender.com/', // URL de produção ou outro ambiente
+        url: 'https://barbearia-hyi0.onrender.com', // URL da API implantada
         description: 'Servidor de Produção',
       },
     ],
