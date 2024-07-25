@@ -60,7 +60,8 @@ npm run dev
 ```
 
 <h2 id="routes">📍 API Endpoints</h2>
-<h2> Essa API está documentada corretamente no Swagger no link http://localhost:4000/api-docs/ caso queira testar ou se preferir apenas visualizar está abaixo</h2>
+
+<h2> Essa API está documentada corretamente no Swagger no link <a>http://localhost:4000/api-docs/</a> caso queira testar ou se preferir apenas visualizar está abaixo</h2>
 ​
 | route               | description                                          
 |----------------------|-----------------------------------------------------
