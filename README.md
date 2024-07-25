@@ -12,8 +12,11 @@
 </b>
 </p>
 
-<h2> Essa API está documentada corretamente no Swagger no link <a>http://localhost:4000/api-docs/</a> caso queira testar ou se preferir apenas visualizar está abaixo</h2>
-
+<h2> 
+ Essa API está documentada corretamente no Swagger no link 
+ <a href="http://localhost:4000/api-docs/">API Barbearia do Tim</a>
+</h2>
+ 
 <h2 id="technologies">💻 Technologies</h2>
 
 - NodeJS
