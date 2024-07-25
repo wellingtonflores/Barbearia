@@ -12,9 +12,9 @@
 </b>
 </p>
 
-<h2> 
+<h2 align="center"> 
  Essa API está documentada corretamente no Swagger no link 
- <a href="http://localhost:4000/api-docs/">API Barbearia do Tim</a>
+ <a href="https://barbearia-hyi0.onrender.com/api-docs">API Barbearia do Tim</a>
 </h2>
  
 <h2 id="technologies">💻 Technologies</h2>
