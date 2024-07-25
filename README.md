@@ -8,7 +8,8 @@
 </p>
 
 <p align="center">
-    <b>A Barbearia do Tim API é uma API RESTful que permite a gestão de uma barbearia. A API oferece endpoints para gerenciar usuários, barbeiros, serviços e agendamentos.
+    <b>A Barbearia do Tim API é uma API RESTful que permite a gestão de uma barbearia. A API oferece endpoints para gerenciar usuários, barbeiros, serviços e agendamentos. 
+<h2> Essa API está documentada corretamente no Swagger no link <a>http://localhost:4000/api-docs/</a> caso queira testar ou se preferir apenas visualizar está abaixo</h2>
 </b>
 </p>
 
