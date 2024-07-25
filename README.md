@@ -1,7 +1,7 @@
 <h1 align="center" style="font-weight: bold;">Barbearia do Tim 💻</h1>
 
 <p align="center">
- <a href="#tech">Technologies</a> • 
+ <a href="#technologies">Technologies</a> • 
  <a href="#started">Getting Started</a> • 
   <a href="#routes">API Endpoints</a> •
  <a href="#contribute">Contribute</a>
@@ -9,9 +9,10 @@
 
 <p align="center">
     <b>A Barbearia do Tim API é uma API RESTful que permite a gestão de uma barbearia. A API oferece endpoints para gerenciar usuários, barbeiros, serviços e agendamentos. 
-<h2> Essa API está documentada corretamente no Swagger no link <a>http://localhost:4000/api-docs/</a> caso queira testar ou se preferir apenas visualizar está abaixo</h2>
 </b>
 </p>
+
+<h2> Essa API está documentada corretamente no Swagger no link <a>http://localhost:4000/api-docs/</a> caso queira testar ou se preferir apenas visualizar está abaixo</h2>
 
 <h2 id="technologies">💻 Technologies</h2>
 
