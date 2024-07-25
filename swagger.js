@@ -11,8 +11,12 @@ const swaggerSpec = swaggerJSDoc({
     },
     servers: [
       {
-        url: 'http://localhost:4000/',
+        url: 'http://localhost:4000/', // URL para desenvolvimento local
         description: 'Servidor local',
+      },
+      {
+        url: 'https://barbearia-hyi0.onrender.com/', // URL de produção ou outro ambiente
+        description: 'Servidor de Produção',
       },
     ],
     components: {
