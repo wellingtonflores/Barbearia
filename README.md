@@ -36,7 +36,7 @@ npm install
 
 
 ```bash
-git https://github.com/wellingtonflores/Barbearia
+git clone https://github.com/wellingtonflores/Barbearia
 ```
 
 <h3>Config .env variables</h2>
